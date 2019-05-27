@@ -8,7 +8,7 @@ public class PoetryReader {
     public static void main(String args[]) {
         CommandParser parser = new CommandParser();
         PoetryReader reader = new PoetryReader();
-        Reveal reveal = new Reveal();
+        ReadingFormat reveal = new ReadingFormat();
         String output = null;
         switch (parser.getParsedCommandMap(args).get("Action")) {
             case "Reveal":

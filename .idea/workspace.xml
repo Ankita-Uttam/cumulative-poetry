@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="686b05ce-b69e-4760-987a-f7d1b15fbf87" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CommandParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PoetryReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestCommandParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PoetryReading.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Reveal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Reveal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PoetryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PoetryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Reveal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReadingFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestPoetryRevelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/PoetryReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+            <state relative-caret-position="232">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/CommandParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,7 +70,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Reveal.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ReadingFormat.java">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -84,14 +84,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestPoetryRevelation.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
-              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+            <state relative-caret-position="-1658">
+              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6101#6102#0" expanded="true" />
-                <element signature="e#6190#6191#0" expanded="true" />
+                <element signature="e#6087#6088#0" expanded="true" />
+                <element signature="e#6176#6177#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +100,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+            <state relative-caret-position="18">
+              <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestCommandParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="22" lean-forward="true" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -133,10 +142,12 @@
         <option value="$PROJECT_DIR$/src/test/java/PoetryReading.java" />
         <option value="$PROJECT_DIR$/src/main/resources/poetry.txt" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/test/java/TestPoetryRevelation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CommandParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/Reveal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ReadingFormat.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestPoetryRevelation.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/test/java/TestCommandParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CommandParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/PoetryReader.java" />
       </list>
     </option>
@@ -228,73 +239,73 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.TestPoetryRevelation.testRevelationForRandomDay">
+  <component name="RunManager" selected="Gradle.TestCommandParser.testForRecitingCommand">
+    <configuration name="TestCommandParser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestCommandParser&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCommandParser.testForRecitingCommand" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestCommandParser.testForRecitingCommand&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCommandParser.testForRevealingCommand" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestCommandParser.testForRevealingCommand&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="TestPoetryRevelation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;TestPoetryRevelation&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestPoetryRevelation.testReciteStory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;TestPoetryRevelation.testReciteStory&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestPoetryRevelation.testRevelationForDayOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;TestPoetryRevelation.testRevelationForDayOne&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestPoetryRevelation.testRevelationForDayTwo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;TestPoetryRevelation.testRevelationForDayTwo&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -331,11 +342,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestCommandParser.testForRecitingCommand" />
+        <item itemvalue="Gradle.TestCommandParser" />
+        <item itemvalue="Gradle.TestCommandParser.testForRevealingCommand" />
         <item itemvalue="Gradle.TestPoetryRevelation.testRevelationForRandomDay" />
         <item itemvalue="Gradle.TestPoetryRevelation" />
-        <item itemvalue="Gradle.TestPoetryRevelation.testRevelationForDayTwo" />
-        <item itemvalue="Gradle.TestPoetryRevelation.testRevelationForDayOne" />
-        <item itemvalue="Gradle.TestPoetryRevelation.testReciteStory" />
       </list>
     </recent_temporary>
   </component>
@@ -349,26 +360,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558885938192</updated>
-      <workItem from="1558885964214" duration="21411000" />
+      <workItem from="1558885964214" duration="26578000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestPoetryRevelation_testRevelationForDayTwelve - 2019.05.27 at 12h 47m 55s.xml">
-      <configuration name="TestPoetryRevelation.testRevelationForDayTwelve" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestPoetryRevelation - 2019.05.27 at 12h 49m 41s.xml">
-      <configuration name="TestPoetryRevelation" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestPoetryRevelation - 2019.05.27 at 12h 58m 47s.xml">
-      <configuration name="TestPoetryRevelation" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestPoetryRevelation_testReciteStory - 2019.05.27 at 13h 46m 14s.xml">
-      <configuration name="TestPoetryRevelation.testReciteStory" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestPoetryRevelation_testRevelationForDayOne - 2019.05.27 at 13h 50m 00s.xml">
-      <configuration name="TestPoetryRevelation.testRevelationForDayOne" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="TestPoetryRevelation_testRevelationForDayOne - 2019.05.27 at 13h 50m 05s.xml">
       <configuration name="TestPoetryRevelation.testRevelationForDayOne" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -384,9 +380,24 @@
     <history-entry file="TestPoetryRevelation_testRevelationForRandomDay - 2019.05.27 at 16h 32m 31s.xml">
       <configuration name="TestPoetryRevelation.testRevelationForRandomDay" configurationId="GradleRunConfiguration" />
     </history-entry>
+    <history-entry file="TestCommandParser_testForRevealingCommand - 2019.05.27 at 23h 54m 36s.xml">
+      <configuration name="TestCommandParser.testForRevealingCommand" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCommandParser_testForRecitingCommand - 2019.05.27 at 23h 55m 35s.xml">
+      <configuration name="TestCommandParser.testForRecitingCommand" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCommandParser - 2019.05.27 at 23h 56m 51s.xml">
+      <configuration name="TestCommandParser" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCommandParser - 2019.05.27 at 23h 57m 16s.xml">
+      <configuration name="TestCommandParser" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCommandParser_testForRecitingCommand - 2019.05.27 at 23h 57m 39s.xml">
+      <configuration name="TestCommandParser.testForRecitingCommand" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21411000" />
+    <option name="totallyTimeSpent" value="26578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="948" extended-state="0" />
@@ -401,14 +412,14 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Build" weight="0.3297491" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3297491" />
+      <window_info anchor="bottom" id="Terminal" weight="0.3297491" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3297491" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297491" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297491" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -455,40 +466,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        <state relative-caret-position="18">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestPoetryRevelation.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+        <state relative-caret-position="-1658">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6101#6102#0" expanded="true" />
-            <element signature="e#6190#6191#0" expanded="true" />
+            <element signature="e#6087#6088#0" expanded="true" />
+            <element signature="e#6176#6177#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestCommandParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="22" lean-forward="true" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ReadingFormat.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CommandParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Reveal.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PoetryReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+        <state relative-caret-position="232">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,4 +1,4 @@
-public class Reveal {
+public class ReadingFormat {
 
     public String revealForDayN(int dayNumber, String[] storyLines) {
         String revelation = "";
