@@ -5,21 +5,18 @@ import java.io.IOException;
 
 public class PoetryReader {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         CommandParser parser = new CommandParser();
         PoetryReader reader = new PoetryReader();
-        RevealingFormat revealingFormat;
         String output = null;
         try {
             switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
                 case "Reveal":
-                    revealingFormat = new RevealByDay();
-                    output = revealingFormat.reveal(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME),
-                            parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
+                    output = new RevealByDay().revealForDayN(parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER),
+                            reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
                     break;
                 case "Recite":
-                    revealingFormat = new Recite();
-                    output = revealingFormat.reveal(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
+                    output = new Recite().recite(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
                     break;
             }
         } catch(IllegalArgumentException ex) {
