@@ -1,5 +1,3 @@
-import com.sun.org.apache.bcel.internal.Const;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +9,9 @@ public class CommandParser {
 
         parser.handleIllegalArguments(arguments);
 
-        if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER)) {
+        boolean isReveal = arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
+
+        if (isReveal) {
             parsedMap.put(Constants.KEY_ACTION, Constants.REVEAL);
             parsedMap.put(Constants.KEY_DAY_NUMBER, arguments[1]);
         } else {
@@ -21,13 +21,25 @@ public class CommandParser {
     }
 
     private void handleIllegalArguments(String[] arguments) throws IllegalArgumentException {
-        if (arguments.length == 0)
+        final int REVEAL_COMMAND_ARGUMENTS_LENGTH = 2;
+        final int RECITE_COMMAND_ARGUMENTS_LENGTH = 1;
+        boolean noArguments = (arguments.length == 0);
+
+        if (noArguments)
             throw new IllegalArgumentException("expected arguments: no arguments received");
-        else if (!(arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER) || arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER)))
+
+        boolean neitherRevealNorRecite = !(arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER)
+                || arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER));
+        boolean revealCommandWithUnnecessaryArguments = arguments.length > REVEAL_COMMAND_ARGUMENTS_LENGTH &&
+                arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
+        boolean reciteCommandWithUnnecessaryArguments = arguments.length > RECITE_COMMAND_ARGUMENTS_LENGTH &&
+                arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER);
+
+        if (neitherRevealNorRecite)
             throw new IllegalArgumentException("PoetryReader: " + arguments[Constants.START_INDEX] + ": command not found");
-        else if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER) && arguments.length > 2)
+        else if (revealCommandWithUnnecessaryArguments)
             throw new IllegalArgumentException("wrong reveal command: unnecessary arguments");
-        else if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER) && arguments.length > 1)
+        else if (reciteCommandWithUnnecessaryArguments)
             throw new IllegalArgumentException("wrong recite command: unnecessary arguments");
     }
 }
