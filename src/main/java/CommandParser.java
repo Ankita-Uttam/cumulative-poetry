@@ -1,3 +1,5 @@
+import com.sun.org.apache.bcel.internal.Const;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,11 +11,11 @@ public class CommandParser {
 
         parser.handleIllegalArguments(arguments);
 
-        if (arguments[0].equalsIgnoreCase("--reveal-for-day")) {
-            parsedMap.put("Action", "Reveal");
-            parsedMap.put("DayNumber", arguments[1]);
+        if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER)) {
+            parsedMap.put(Constants.KEY_ACTION, Constants.REVEAL);
+            parsedMap.put(Constants.KEY_DAY_NUMBER, arguments[1]);
         } else {
-            parsedMap.put("Action", "Recite");
+            parsedMap.put(Constants.KEY_ACTION, Constants.RECITE);
         }
         return parsedMap;
     }
@@ -21,11 +23,11 @@ public class CommandParser {
     private void handleIllegalArguments(String[] arguments) throws IllegalArgumentException {
         if (arguments.length == 0)
             throw new IllegalArgumentException("expected arguments: no arguments received");
-        else if (!(arguments[0].equalsIgnoreCase("--reveal-for-day") || arguments[0].equalsIgnoreCase("--recite")))
-            throw new IllegalArgumentException("PoetryReader: " + arguments[0] + ": command not found");
-        else if (arguments[0].equalsIgnoreCase("--reveal-for-day") && arguments.length > 2)
+        else if (!(arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER) || arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER)))
+            throw new IllegalArgumentException("PoetryReader: " + arguments[Constants.START_INDEX] + ": command not found");
+        else if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER) && arguments.length > 2)
             throw new IllegalArgumentException("wrong reveal command: unnecessary arguments");
-        else if (arguments[0].equalsIgnoreCase("--recite") && arguments.length > 1)
+        else if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER) && arguments.length > 1)
             throw new IllegalArgumentException("wrong recite command: unnecessary arguments");
     }
 }

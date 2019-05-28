@@ -7,7 +7,7 @@ public class Reveal {
 
     public String recite (String[] storyLines) {
         String recitation = "";
-        for (int i = 1; i <=12; i++) {
+        for (int i = Constants.FIRST_DAY; i <= Constants.LAST_DAY; i++) {
             recitation += "Day " + i + " -\n";
             recitation += revealForDayN(i, storyLines);
             recitation += "\n\n";
@@ -17,7 +17,7 @@ public class Reveal {
 
     private String revealForDayN(int dayNumber, String[] storyLines) {
         String revelation = "";
-        revelation += "This is " + storyLines[storyLines.length - dayNumber];
+        revelation += Constants.START_PHRASE + storyLines[storyLines.length - dayNumber];
         for (int i = storyLines.length - dayNumber + 1; i < storyLines.length; i++) {
             revelation += "\n\t" + storyLines[i];
         }
@@ -25,16 +25,16 @@ public class Reveal {
     }
 
     private int handleDayNumber(String day) throws IllegalArgumentException{
-        int dayNumber = 0;
+        int dayNumber;
         try {
             dayNumber = Integer.parseInt(day);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("wrong reveal command: illegal day number");
         }
 
-        if (dayNumber > 12 )
-            dayNumber = 12;
-        else if (dayNumber == 0)
+        if (dayNumber > Constants.LAST_DAY )
+            dayNumber = Constants.LAST_DAY;
+        else if (dayNumber == Constants.DAY_ZERO)
             throw new IllegalArgumentException("wrong reveal command: illegal day number");
 
         return dayNumber;

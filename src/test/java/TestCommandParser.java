@@ -11,14 +11,14 @@ public class TestCommandParser {
 
     @Test
     public void testForRevealingCommand() {
-        String[] args = {"--reveal-for-day", "20"};
-        Assert.assertEquals("Reveal", parser.getParsedCommandMap(args).get("Action"));
+        String[] args = {Constants.REVEAL_IDENTIFIER, "20"};
+        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
     }
 
     @Test
     public void testForRecitingCommand() {
-        String[] args = {"--recite"};
-        Assert.assertEquals("Recite", parser.getParsedCommandMap(args).get("Action"));
+        String[] args = {Constants.RECITE_IDENTIFIER};
+        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TestCommandParser {
 
     @Test
     public void testForRevealCommandWithMoreArguments() {
-        String[] args = {"--reveal-for-day", "20", "some", "other", "arguments"};
+        String[] args = {Constants.REVEAL_IDENTIFIER, "20", "some", "other", "arguments"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("wrong reveal command: unnecessary arguments");
         parser.getParsedCommandMap(args);
@@ -55,7 +55,7 @@ public class TestCommandParser {
 
     @Test
     public void testForReciteCommandWithMoreArguments() {
-        String[] args = {"--recite", "20", "some", "other", "arguments"};
+        String[] args = {Constants.RECITE_IDENTIFIER, "20", "some", "other", "arguments"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("wrong recite command: unnecessary arguments");
         parser.getParsedCommandMap(args);
@@ -63,7 +63,7 @@ public class TestCommandParser {
 
     @Test
     public void testForRevealCommandWithIllegalDayNumberAndMoreArguments() {
-        String[] args = {"--reveal-for-day", "abc", "some", "other", "arguments"};
+        String[] args = {Constants.REVEAL_IDENTIFIER, "abc", "some", "other", "arguments"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("wrong reveal command: unnecessary arguments");
         parser.getParsedCommandMap(args);

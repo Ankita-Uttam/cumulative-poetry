@@ -11,12 +11,13 @@ public class PoetryReader {
         Reveal reveal = new Reveal();
         String output = null;
         try {
-            switch (parser.getParsedCommandMap(args).get("Action")) {
+            switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
                 case "Reveal":
-                    output = reveal.revealForDayN(parser.getParsedCommandMap(args).get("DayNumber"), reader.getStory());
+                    output = reveal.revealForDayN(parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER),
+                            reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
                     break;
                 case "Recite":
-                    output = reveal.recite(reader.getStory());
+                    output = reveal.recite(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
                     break;
             }
         } catch(IllegalArgumentException ex) {
@@ -27,13 +28,13 @@ public class PoetryReader {
     }
 
     // Is it a utility function?
-    public String[] getStory() {
-        String[] story = new String[12];
+    public String[] getStory(String filePath) {
+        String[] story = new String[Constants.MAX_LINES];
         try {
-            FileReader fileReader = new FileReader("/Users/ankita.uttam/practice/Java/cumulative-poetry/src/main/resources/poetry.txt");
+            FileReader fileReader = new FileReader(filePath);
             BufferedReader br = new BufferedReader(fileReader);
             String storyLine;
-            int lineIndex = 0;
+            int lineIndex = Constants.START_INDEX;
             while ((storyLine = br.readLine()) != null) {
                 story[lineIndex++] = storyLine;
             }

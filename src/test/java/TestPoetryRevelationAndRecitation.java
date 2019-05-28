@@ -14,7 +14,7 @@ public class TestPoetryRevelationAndRecitation {
     private Reveal reveal = new Reveal();
 
     private String[] getStory() {
-        String[] story = new String[12];
+        String[] story = new String[Constants.MAX_LINES];
         try {
             FileInputStream inputStream = new FileInputStream("/Users/ankita.uttam/practice/Java/cumulative-poetry/src/main/resources/poetry.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
@@ -119,6 +119,6 @@ public class TestPoetryRevelationAndRecitation {
     public void testReciteStory() {
         Assert.assertNotNull("Recitation is not null", reveal.recite(getStory()));
         Assert.assertTrue(reveal.recite(getStory()).startsWith("Day 1 -"));
-        Assert.assertTrue(reveal.recite(getStory()).split("\n\n").length == 12);
+        Assert.assertTrue(reveal.recite(getStory()).split("\n\n").length == Constants.LAST_DAY);
     }
 }
