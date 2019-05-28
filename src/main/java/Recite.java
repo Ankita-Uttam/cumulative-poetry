@@ -1,10 +1,10 @@
-public class Recite {
+class Recite {
 
-    public String recite (String[] storyLines) {
+    public String recite (String[] storyLines, RevealByDay revealer) {
         String recitation = "";
-        for (int i = Constants.FIRST_DAY; i <= Constants.LAST_DAY; i++) {
+        for (int i = Constants.FIRST_DAY; i <= storyLines.length; i++) {
             recitation += StringFormatter.addLineFeed(getDayInformation(i), Constants.FORMAT_POS_END) +
-                    new RevealByDay().revealForDayN(i, storyLines);
+                    revealer.revealForDayN(i, storyLines);
             recitation = StringFormatter.addLineFeed(recitation, Constants.FORMAT_POS_END);
             recitation = StringFormatter.addLineFeed(recitation, Constants.FORMAT_POS_END);
         }

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommandParser {
+class CommandParser {
 
     public Map<String, String> getParsedCommandMap(String[] arguments) {
         Map parsedMap = new HashMap<String, String>();

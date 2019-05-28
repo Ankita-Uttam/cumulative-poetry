@@ -1,11 +1,11 @@
-public class RevealByDay {
+class RevealByDay {
 
     public String revealForDayN(String dayNumber, String[] storyLines) throws IllegalArgumentException {
-        int _dayNumber = handleDayNumber(dayNumber);
+        int _dayNumber = handleDayNumber(dayNumber, storyLines.length);
         return revealForDayN(_dayNumber, storyLines);
     }
 
-    private int handleDayNumber(String day) throws IllegalArgumentException{
+    private int handleDayNumber(String day, int linesCount) throws IllegalArgumentException{
         int dayNumber;
         try {
             dayNumber = Integer.parseInt(day);
@@ -13,8 +13,8 @@ public class RevealByDay {
             throw new IllegalArgumentException("wrong reveal command: illegal day number");
         }
 
-        if (dayNumber > Constants.LAST_DAY )
-            dayNumber = Constants.LAST_DAY;
+        if (dayNumber >  linesCount)
+            dayNumber = linesCount;
         else if (dayNumber == Constants.DAY_ZERO)
             throw new IllegalArgumentException("wrong reveal command: illegal day number");
 
