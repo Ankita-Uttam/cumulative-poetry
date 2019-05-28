@@ -8,15 +8,19 @@ public class PoetryReader {
     public static void main(String args[]) {
         CommandParser parser = new CommandParser();
         PoetryReader reader = new PoetryReader();
-        ReadingFormat reveal = new ReadingFormat();
+        Reveal reveal = new Reveal();
         String output = null;
-        switch (parser.getParsedCommandMap(args).get("Action")) {
-            case "Reveal":
-                output = reveal.revealForDayN(Integer.parseInt(parser.getParsedCommandMap(args).get("DayNumber")), reader.getStory());
-                break;
-            case "Recite":
-                output = reveal.recite(reader.getStory());
-                break;
+        try {
+            switch (parser.getParsedCommandMap(args).get("Action")) {
+                case "Reveal":
+                    output = reveal.revealForDayN(parser.getParsedCommandMap(args).get("DayNumber"), reader.getStory());
+                    break;
+                case "Recite":
+                    output = reveal.recite(reader.getStory());
+                    break;
+            }
+        } catch(IllegalArgumentException ex) {
+            output = ex.getMessage();
         }
 
         System.out.println(output);

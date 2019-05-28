@@ -21,59 +21,59 @@ public class TestCommandParser {
         Assert.assertEquals("Recite", parser.getParsedCommandMap(args).get("Action"));
     }
 
-//    @Test
-//    public void testForIllegalCommand() {
-//        String[] args = {"--i-am-illegal"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
-//        parser.getParsedCommandMap(args);
-//    }
-//
-//    @Test
-//    public void testForIllegalCommandWithDayNumber() {
-//        String[] args = {"--i-am-illegal", "20"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
-//        parser.getParsedCommandMap(args);
-//    }
-//
-//    @Test
-//    public void testForIllegalCommandWithMoreArguments() {
-//        String[] args = {"--i-am-illegal"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
-//        parser.getParsedCommandMap(args);
-//    }
-//
-//    @Test
-//    public void testForRevealCommandWithMoreArguments() {
-//        String[] args = {"--reveal-for-day", "20", "some", "other", "arguments"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("wrong reveal command: unnecessary arguments");
-//        parser.getParsedCommandMap(args);
-//    }
-//
-//    @Test
-//    public void testForReciteCommandWithMoreArguments() {
-//        String[] args = {"--recite", "20", "some", "other", "arguments"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("wrong recite command: unnecessary arguments");
-//        parser.getParsedCommandMap(args);
-//    }
-//
-//    @Test
-//    public void testForRevealCommandWithIllegalDayNumber() {
-//        String[] args = {"--reveal-for-day", "abc"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("wrong reveal command: illegal day number");
-//        parser.getParsedCommandMap(args);
-//    }
-//
-//    @Test
-//    public void testForRevealCommandWithIllegalDayNumberAndMoreArguments() {
-//        String[] args = {"--reveal-for-day", "abc", "some", "other", "arguments"};
-//        exception.expect(IllegalArgumentException.class);
-//        exception.expectMessage("wrong reveal command: illegal day number");
-//        parser.getParsedCommandMap(args);
-//    }
+    @Test
+    public void testForIllegalCommand() {
+        String[] args = {"--i-am-illegal"};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
+        parser.getParsedCommandMap(args);
+    }
+
+    @Test
+    public void testForIllegalCommandWithDayNumber() {
+        String[] args = {"--i-am-illegal", "20"};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
+        parser.getParsedCommandMap(args);
+    }
+
+    @Test
+    public void testForIllegalCommandWithMoreArguments() {
+        String[] args = {"--i-am-illegal"};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
+        parser.getParsedCommandMap(args);
+    }
+
+    @Test
+    public void testForRevealCommandWithMoreArguments() {
+        String[] args = {"--reveal-for-day", "20", "some", "other", "arguments"};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("wrong reveal command: unnecessary arguments");
+        parser.getParsedCommandMap(args);
+    }
+
+    @Test
+    public void testForReciteCommandWithMoreArguments() {
+        String[] args = {"--recite", "20", "some", "other", "arguments"};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("wrong recite command: unnecessary arguments");
+        parser.getParsedCommandMap(args);
+    }
+
+    @Test
+    public void testForRevealCommandWithIllegalDayNumberAndMoreArguments() {
+        String[] args = {"--reveal-for-day", "abc", "some", "other", "arguments"};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("wrong reveal command: unnecessary arguments");
+        parser.getParsedCommandMap(args);
+    }
+
+    @Test
+    public void testForCommandWithoutArguments() {
+        String[] args = {};
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("expected arguments: no arguments received");
+        parser.getParsedCommandMap(args);
+    }
 }
