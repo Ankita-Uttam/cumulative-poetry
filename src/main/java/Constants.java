@@ -14,4 +14,6 @@ public class Constants {
     public static final int MAX_LINES = 12;
     public static final int DAY_ZERO = 0;
     public static final int START_INDEX = 0;
+    public static final String FORMAT_POS_START = "start";
+    public static final String FORMAT_POS_END = "end";
 }

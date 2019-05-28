@@ -4,10 +4,9 @@ import java.util.Map;
 public class CommandParser {
 
     public Map<String, String> getParsedCommandMap(String[] arguments) {
-        CommandParser parser = new CommandParser();
         Map parsedMap = new HashMap<String, String>();
 
-        parser.handleIllegalArguments(arguments);
+        handleIllegalArguments(arguments);
 
         boolean isReveal = arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
 

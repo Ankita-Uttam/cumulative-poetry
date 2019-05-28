@@ -1,29 +1,39 @@
 public class Reveal {
 
+    // reveal
     public String revealForDayN(String dayNumber, String[] storyLines) throws IllegalArgumentException {
         int _dayNumber = handleDayNumber(dayNumber);
         return revealForDayN(_dayNumber, storyLines);
     }
 
+    // recite
     public String recite (String[] storyLines) {
         String recitation = "";
         for (int i = Constants.FIRST_DAY; i <= Constants.LAST_DAY; i++) {
-            recitation += "Day " + i + " -\n";
-            recitation += revealForDayN(i, storyLines);
-            recitation += "\n\n";
+            recitation += StringFormatter.addLineFeed(getDayInformation(i), Constants.FORMAT_POS_END) +
+            revealForDayN(i, storyLines);
+            recitation = StringFormatter.addLineFeed(recitation, Constants.FORMAT_POS_END);
+            recitation = StringFormatter.addLineFeed(recitation, Constants.FORMAT_POS_END);
         }
-        return  recitation;
+        return recitation;
     }
 
+    // recite
+    private String getDayInformation(int dayNumber) {
+        return "Day " + dayNumber + " -";
+    }
+
+    // common
     private String revealForDayN(int dayNumber, String[] storyLines) {
-        String revelation = "";
-        revelation += Constants.START_PHRASE + storyLines[storyLines.length - dayNumber];
+        String revelation = Constants.START_PHRASE + storyLines[storyLines.length - dayNumber];
         for (int i = storyLines.length - dayNumber + 1; i < storyLines.length; i++) {
-            revelation += "\n\t" + storyLines[i];
+            revelation += StringFormatter.addLineFeed( StringFormatter.addTab(storyLines[i], Constants.FORMAT_POS_START),
+                    Constants.FORMAT_POS_START);
         }
         return revelation;
     }
 
+    // reveal
     private int handleDayNumber(String day) throws IllegalArgumentException{
         int dayNumber;
         try {
