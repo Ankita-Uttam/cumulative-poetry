@@ -8,16 +8,18 @@ public class PoetryReader {
     public static void main(String args[]) {
         CommandParser parser = new CommandParser();
         PoetryReader reader = new PoetryReader();
-        Reveal reveal = new Reveal();
+        RevealingFormat revealingFormat;
         String output = null;
         try {
             switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
                 case "Reveal":
-                    output = reveal.revealForDayN(parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER),
-                            reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
+                    revealingFormat = new RevealByDay();
+                    output = revealingFormat.reveal(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME),
+                            parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
                     break;
                 case "Recite":
-                    output = reveal.recite(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
+                    revealingFormat = new Recite();
+                    output = revealingFormat.reveal(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
                     break;
             }
         } catch(IllegalArgumentException ex) {
