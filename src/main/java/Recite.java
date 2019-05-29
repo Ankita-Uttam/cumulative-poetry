@@ -1,6 +1,6 @@
 class Recite {
 
-    public String recite (String[] storyLines, RevealByDay revealer) {
+    public String recite (String[] storyLines, RevealingFormat revealer) {
         String recitation = "";
         for (int i = Constants.FIRST_DAY; i <= storyLines.length; i++) {
             recitation += StringFormatter.addLineFeed(getDayInformation(i), Constants.FORMAT_POS_END) +

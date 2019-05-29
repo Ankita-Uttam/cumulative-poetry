@@ -3,42 +3,57 @@ import java.util.Map;
 
 class CommandParser {
 
-    public Map<String, String> getParsedCommandMap(String[] arguments) {
-        Map parsedMap = new HashMap<String, String>();
+    Map<String, String> getParsedCommandMap(String[] arguments) {
+        Map<String, String> parsedMap = new HashMap<>();
+        int startIndex = 0;
 
-        handleIllegalArguments(arguments);
+        parsedMap.put("Flag", "None");
 
-        boolean isReveal = arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
+        handleNullArguments(arguments.length);
+        handleFlag(arguments, parsedMap);
+
+        if (parsedMap.containsValue("Echo"))
+            startIndex = 1;
+
+        handleIllegalArguments(arguments, startIndex);
+
+        boolean isReveal = arguments[startIndex].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
 
         if (isReveal) {
             parsedMap.put(Constants.KEY_ACTION, Constants.REVEAL);
-            parsedMap.put(Constants.KEY_DAY_NUMBER, arguments[1]);
+            parsedMap.put(Constants.KEY_DAY_NUMBER, arguments[startIndex + 1]);
         } else {
             parsedMap.put(Constants.KEY_ACTION, Constants.RECITE);
         }
         return parsedMap;
     }
 
-    private void handleIllegalArguments(String[] arguments) throws IllegalArgumentException {
-        final int REVEAL_COMMAND_ARGUMENTS_LENGTH = 2;
-        final int RECITE_COMMAND_ARGUMENTS_LENGTH = 1;
-        boolean noArguments = (arguments.length == 0);
+    private void handleIllegalArguments(String[] arguments, int startIndex) throws IllegalArgumentException {
+        final int REVEAL_COMMAND_ARGUMENTS_LENGTH = startIndex + 2;
+        final int RECITE_COMMAND_ARGUMENTS_LENGTH = startIndex + 1;
 
-        if (noArguments)
-            throw new IllegalArgumentException("expected arguments: no arguments received");
-
-        boolean neitherRevealNorRecite = !(arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER)
-                || arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER));
+        boolean neitherRevealNorRecite = !(arguments[startIndex].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER)
+                || arguments[startIndex].equalsIgnoreCase(Constants.RECITE_IDENTIFIER));
         boolean revealCommandWithUnnecessaryArguments = arguments.length > REVEAL_COMMAND_ARGUMENTS_LENGTH &&
-                arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
+                arguments[startIndex].equalsIgnoreCase(Constants.REVEAL_IDENTIFIER);
         boolean reciteCommandWithUnnecessaryArguments = arguments.length > RECITE_COMMAND_ARGUMENTS_LENGTH &&
-                arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.RECITE_IDENTIFIER);
+                arguments[startIndex].equalsIgnoreCase(Constants.RECITE_IDENTIFIER);
 
         if (neitherRevealNorRecite)
-            throw new IllegalArgumentException("PoetryReader: " + arguments[Constants.START_INDEX] + ": command not found");
+            throw new IllegalArgumentException("PoetryReader: " + arguments[startIndex] + ": command not found");
         else if (revealCommandWithUnnecessaryArguments)
             throw new IllegalArgumentException("wrong reveal command: unnecessary arguments");
         else if (reciteCommandWithUnnecessaryArguments)
             throw new IllegalArgumentException("wrong recite command: unnecessary arguments");
+    }
+
+    private void handleNullArguments(int argumentsCount) {
+        if (argumentsCount == 0)
+            throw new IllegalArgumentException("expected arguments: no arguments received");
+    }
+
+    private void handleFlag(String[] arguments, Map<String, String> parsedMap) {
+        if (arguments[Constants.START_INDEX].equalsIgnoreCase(Constants.ECHO_FLAG))
+            parsedMap.replace("Flag", "Echo");
     }
 }
