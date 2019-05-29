@@ -2,14 +2,18 @@ class EchoReveal extends RevealingFormat {
 
     String revealForDayN(int dayNumber, String[] storyLines) {
         String revelation = Constants.START_PHRASE + storyLines[storyLines.length - dayNumber] +
-                StringFormatter.addLineFeed( StringFormatter.addTab(storyLines[storyLines.length - dayNumber], Constants.FORMAT_POS_START),
-                        Constants.FORMAT_POS_START);
+                repeatLines(storyLines[storyLines.length - dayNumber], 1);
         for (int i = storyLines.length - dayNumber + 1; i < storyLines.length; i++) {
-            for (int j = 0; j < 2; j++) {
-                revelation += StringFormatter.addLineFeed( StringFormatter.addTab(storyLines[i], Constants.FORMAT_POS_START),
-                        Constants.FORMAT_POS_START);
-            }
+            revelation += repeatLines(storyLines[i], 2);
         }
         return revelation;
+    }
+
+    private String repeatLines(String storyLine, int repeatFrequency) {
+        String repeatedLines = "";
+        for (int i = 1; i <= repeatFrequency; i++) {
+            repeatedLines += formattedStoryLine(storyLine);
+        }
+        return repeatedLines;
     }
 }

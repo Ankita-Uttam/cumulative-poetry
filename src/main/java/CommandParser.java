@@ -41,9 +41,11 @@ class CommandParser {
 
         if (neitherRevealNorRecite)
             throw new IllegalArgumentException("PoetryReader: " + arguments[startIndex] + ": command not found");
-        else if (revealCommandWithUnnecessaryArguments)
+
+        if (revealCommandWithUnnecessaryArguments)
             throw new IllegalArgumentException("wrong reveal command: unnecessary arguments");
-        else if (reciteCommandWithUnnecessaryArguments)
+
+        if (reciteCommandWithUnnecessaryArguments)
             throw new IllegalArgumentException("wrong recite command: unnecessary arguments");
     }
 

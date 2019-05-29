@@ -15,10 +15,16 @@ public abstract class RevealingFormat {
 
         if (dayNumber >  linesCount)
             dayNumber = linesCount;
-        else if (dayNumber == Constants.DAY_ZERO)
+
+        if (dayNumber == Constants.DAY_ZERO)
             throw new IllegalArgumentException("wrong reveal command: illegal day number");
 
         return dayNumber;
+    }
+
+    String formattedStoryLine(String storyLine) {
+        String formattedLine = StringFormatter.addTab(storyLine, Constants.FORMAT_POS_START);
+        return StringFormatter.addLineFeed(formattedLine, Constants.FORMAT_POS_START);
     }
 
     abstract String revealForDayN(int dayNumber, String[] storyLines);
