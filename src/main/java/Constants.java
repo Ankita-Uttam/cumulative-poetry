@@ -14,6 +14,6 @@ public class Constants {
     public static final int FIRST_DAY = 1;
     public static final int DAY_ZERO = 0;
     public static final int START_INDEX = 0;
-    public static final String FORMAT_POS_START = "start";
-    public static final String FORMAT_POS_END = "end";
+    public static final String POS_START = "start";
+    public static final String POS_END = "end";
 }

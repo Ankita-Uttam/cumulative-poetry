@@ -1,9 +1,10 @@
 class EchoReveal extends RevealingFormat {
 
     String revealForDayN(int dayNumber, String[] storyLines) {
-        String revelation = Constants.START_PHRASE + storyLines[storyLines.length - dayNumber] +
-                repeatLines(storyLines[storyLines.length - dayNumber], 1);
-        for (int i = storyLines.length - dayNumber + 1; i < storyLines.length; i++) {
+        int startIndex = storyLines.length - dayNumber;
+        String revelation = Constants.START_PHRASE + storyLines[startIndex] +
+                repeatLines(storyLines[startIndex], 1);
+        for (int i = startIndex + 1; i < storyLines.length; i++) {
             revelation += repeatLines(storyLines[i], 2);
         }
         return revelation;

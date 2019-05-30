@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Map;
 import java.util.Scanner;
 
 public class PoetryReader {
@@ -9,15 +10,17 @@ public class PoetryReader {
 
         String output = null;
         try {
-            RevealingFormat reveal = reader.getRevealingFormat(parser.getParsedCommandMap(args).get("Flag"));
+            Map<String, String> parsedMap = parser.getParsedCommandMap(args);
+            RevealingFormat reveal = reader.getRevealingFormat(parsedMap.get("Flag"));
+            String filePath = Constants.RESOURCE_PATH + Constants.FILE_NAME;
 
             switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
                 case "Reveal":
-                    output = reveal.revealForDayN(parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER),
-                            reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME));
+                    output = reveal.revealForDayN(parsedMap.get(Constants.KEY_DAY_NUMBER),
+                            reader.getStory(filePath));
                     break;
                 case "Recite":
-                    output = new Recite().recite(reader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME), reveal);
+                    output = new Recite().recite(reader.getStory(filePath), reveal);
                     break;
             }
         } catch(IllegalArgumentException ex) {

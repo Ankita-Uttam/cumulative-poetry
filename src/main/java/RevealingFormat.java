@@ -23,8 +23,8 @@ public abstract class RevealingFormat {
     }
 
     String formattedStoryLine(String storyLine) {
-        String formattedLine = StringFormatter.addTab(storyLine, Constants.FORMAT_POS_START);
-        return StringFormatter.addLineFeed(formattedLine, Constants.FORMAT_POS_START);
+        String formattedLine = StringFormatter.addTab(storyLine, Constants.POS_START);
+        return StringFormatter.addLineFeed(formattedLine, Constants.POS_START);
     }
 
     abstract String revealForDayN(int dayNumber, String[] storyLines);
