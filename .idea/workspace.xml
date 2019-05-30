@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="686b05ce-b69e-4760-987a-f7d1b15fbf87" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DefaultReveal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DefaultReveal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EchoReveal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EchoReveal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Recite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PoetryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PoetryReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RevealingFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RevealingFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -40,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/PoetryReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+            <state relative-caret-position="440">
+              <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/CommandParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1078">
-              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="1342">
+              <caret line="61" column="69" selection-start-line="61" selection-start-column="69" selection-end-line="61" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="132">
+              <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -76,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/RevealingFormat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="341">
+              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
               <folding>
                 <element signature="e#1400#1401#0" expanded="true" />
                 <element signature="e#1465#1466#0" expanded="true" />
@@ -89,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DefaultReveal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            <state relative-caret-position="220">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#481#482#0" expanded="true" />
                 <element signature="e#514#515#0" expanded="true" />
@@ -104,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/EchoReveal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+            <state relative-caret-position="44">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
               <folding>
                 <element signature="e#517#518#0" expanded="true" />
                 <element signature="e#560#561#0" expanded="true" />
@@ -138,27 +138,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="797">
-              <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+            <state relative-caret-position="-801">
+              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#334#335#0" expanded="true" />
                 <element signature="e#431#432#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestCommandParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,15 +192,15 @@
         <option value="$PROJECT_DIR$/src/main/java/Reveal.java" />
         <option value="$PROJECT_DIR$/src/main/java/RevealByDay.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestCommandParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CommandParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/PoetryReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/StringFormatter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DefaultReveal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/EchoReveal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/RevealingFormat.java" />
         <option value="$PROJECT_DIR$/src/main/java/Recite.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EchoReveal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DefaultReveal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/RevealingFormat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CommandParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PoetryReader.java" />
       </list>
     </option>
   </component>
@@ -298,33 +286,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.TestPoetryRevelationAndRecitation">
+  <component name="RunManager" selected="Gradle.TestPoetryRevelationAndRecitation.testRevelationForDayZero">
     <configuration name="TestCommandParser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;TestCommandParser&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCommandParser.testForReciteCommandWithMoreArgumentsWithEcho" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;TestCommandParser.testForReciteCommandWithMoreArgumentsWithEcho&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -399,13 +367,33 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TestPoetryRevelationAndRecitation.testRevelationForDayZero" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestPoetryRevelationAndRecitation.testRevelationForDayZero&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestPoetryRevelationAndRecitation.testRevelationForDayZero" />
         <item itemvalue="Gradle.TestPoetryRevelationAndRecitation" />
         <item itemvalue="Gradle.TestPoetryRevelationAndRecitation.testEchoRevelationForDayTwo" />
         <item itemvalue="Gradle.TestPoetryRevelationAndRecitation.testEchoRevelationForDayOne" />
         <item itemvalue="Gradle.TestCommandParser" />
-        <item itemvalue="Gradle.TestCommandParser.testForReciteCommandWithMoreArgumentsWithEcho" />
       </list>
     </recent_temporary>
   </component>
@@ -419,17 +407,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558885938192</updated>
-      <workItem from="1558885964214" duration="79812000" />
+      <workItem from="1558885964214" duration="82510000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestPoetryRevelationAndRecitation_testEchoRevelationForDayTwo - 2019.05.29 at 17h 05m 37s.xml">
-      <configuration name="TestPoetryRevelationAndRecitation.testEchoRevelationForDayTwo" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestPoetryRevelationAndRecitation_testEchoRevelationForDayTwo - 2019.05.29 at 17h 06m 06s.xml">
-      <configuration name="TestPoetryRevelationAndRecitation.testEchoRevelationForDayTwo" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="TestPoetryRevelationAndRecitation_testEchoRevelationForDayTwo - 2019.05.29 at 17h 11m 41s.xml">
       <configuration name="TestPoetryRevelationAndRecitation.testEchoRevelationForDayTwo" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -454,9 +436,15 @@
     <history-entry file="TestPoetryRevelationAndRecitation - 2019.05.29 at 17h 24m 04s.xml">
       <configuration name="TestPoetryRevelationAndRecitation" configurationId="GradleRunConfiguration" />
     </history-entry>
+    <history-entry file="TestPoetryRevelationAndRecitation_testRevelationForDayZero - 2019.05.30 at 14h 26m 14s.xml">
+      <configuration name="TestPoetryRevelationAndRecitation.testRevelationForDayZero" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestPoetryRevelationAndRecitation_testRevelationForDayZero - 2019.05.30 at 14h 35m 35s.xml">
+      <configuration name="TestPoetryRevelationAndRecitation.testRevelationForDayZero" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79812000" />
+    <option name="totallyTimeSpent" value="82510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="948" extended-state="0" />
@@ -468,10 +456,10 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Learn" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14742015" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14742015" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Build" weight="0.3297491" />
-      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49938574" visible="true" weight="0.32019114" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.49938574" visible="true" weight="0.32019114" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5006142" side_tool="true" weight="0.32019114" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
@@ -556,9 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/reports/tests/test/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PoetryReaderUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -597,26 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CommandParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PoetryReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/StringFormatter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -624,30 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DefaultReveal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding>
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EchoReveal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        <state relative-caret-position="44">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding>
             <element signature="e#517#518#0" expanded="true" />
             <element signature="e#560#561#0" expanded="true" />
@@ -657,16 +602,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RevealingFormat.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DefaultReveal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/reports/tests/test/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Recite.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -681,12 +631,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestPoetryRevelationAndRecitation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+        <state relative-caret-position="-801">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#334#335#0" expanded="true" />
             <element signature="e#431#432#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RevealingFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CommandParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="69" selection-start-line="61" selection-start-column="69" selection-end-line="61" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PoetryReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

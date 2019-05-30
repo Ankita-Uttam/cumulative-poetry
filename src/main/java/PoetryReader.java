@@ -11,13 +11,14 @@ public class PoetryReader {
         String output = null;
         try {
             Map<String, String> parsedMap = parser.getParsedCommandMap(args);
-            RevealingFormat reveal = reader.getRevealingFormat(parsedMap.get("Flag"));
+            String flag = parsedMap.get(Constants.KEY_FLAG);
+            RevealingFormat reveal = reader.getRevealingFormat(flag);
             String filePath = Constants.RESOURCE_PATH + Constants.FILE_NAME;
 
             switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
                 case "Reveal":
-                    output = reveal.revealForDayN(parsedMap.get(Constants.KEY_DAY_NUMBER),
-                            reader.getStory(filePath));
+                    String dayNumber = parsedMap.get(Constants.KEY_DAY_NUMBER);
+                    output = reveal.revealForDayN(dayNumber, reader.getStory(filePath));
                     break;
                 case "Recite":
                     output = new Recite().recite(reader.getStory(filePath), reveal);
