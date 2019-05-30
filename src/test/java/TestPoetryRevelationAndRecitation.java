@@ -54,12 +54,14 @@ public class TestPoetryRevelationAndRecitation {
 
     @Test
     public void testRevelationForLastDay() {
-        Assert.assertEquals(getStory().length, revealer.revealForDayN(getStory().length, getStory()).split("\n").length);
+        Assert.assertEquals(getStory().length,
+                revealer.revealForDayN(String.valueOf(getStory().length), getStory()).split("\n").length);
     }
 
     @Test
     public void testEchoRevelationForLastDay() {
-        Assert.assertEquals(getStory().length * 2, echoRevealer.revealForDayN(getStory().length, getStory()).split("\n").length);
+        Assert.assertEquals(getStory().length * 2, echoRevealer.revealForDayN(String.valueOf(getStory().length),
+                getStory()).split("\n").length);
     }
 
     @Test

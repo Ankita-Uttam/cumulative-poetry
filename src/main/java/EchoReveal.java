@@ -1,13 +1,21 @@
 class EchoReveal extends RevealingFormat {
 
-    String revealForDayN(int dayNumber, String[] storyLines) {
-        int startIndex = storyLines.length - dayNumber;
-        String revelation = Constants.START_PHRASE + storyLines[startIndex] +
-                repeatLines(storyLines[startIndex], 1);
-        for (int i = startIndex + 1; i < storyLines.length; i++) {
-            revelation += repeatLines(storyLines[i], 2);
-        }
-        return revelation;
+//    String revealForDayN(int dayNumber, String[] storyLines) {
+//        int startIndex = storyLines.length - dayNumber;
+//        String revelation = Constants.START_PHRASE + storyLines[startIndex] +
+//                repeatLines(storyLines[startIndex], 1);
+//        for (int i = startIndex + 1; i < storyLines.length; i++) {
+//            revelation += repeatLines(storyLines[i], 2);
+//        }
+//        return revelation;
+//    }
+
+    protected String startPattern(String startLine) {
+        return firstLine(startLine) + repeatLines(startLine, 1);
+    }
+
+    protected String remainingPattern(String storyLine) {
+        return repeatLines(storyLine, 2);
     }
 
     private String repeatLines(String storyLine, int repeatFrequency) {

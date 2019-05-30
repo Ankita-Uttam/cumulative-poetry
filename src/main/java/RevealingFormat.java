@@ -2,7 +2,9 @@ public abstract class RevealingFormat {
 
     String revealForDayN(String dayNumber, String[] storyLines) throws IllegalArgumentException {
         int _dayNumber = handleDayNumber(dayNumber, storyLines.length);
-        return revealForDayN(_dayNumber, storyLines);
+        int startIndex = storyLines.length - _dayNumber;
+        String revelation = startPattern(storyLines[startIndex]);
+        return revelation + remainingLines(startIndex, storyLines);
     }
 
     private int handleDayNumber(String day, int linesCount) throws IllegalArgumentException{
@@ -27,5 +29,19 @@ public abstract class RevealingFormat {
         return StringFormatter.addLineFeed(formattedLine, Constants.POS_START);
     }
 
-    abstract String revealForDayN(int dayNumber, String[] storyLines);
+    String firstLine(String startLine) {
+        return Constants.START_PHRASE + startLine;
+    }
+
+    private String remainingLines(int index, String[] storyLines) {
+        String remainingLines = "";
+        for (int i = index + 1; i < storyLines.length; i++) {
+            remainingLines += remainingPattern(storyLines[i]);
+        }
+        return remainingLines;
+    }
+
+    protected abstract String remainingPattern(String storyLine);
+
+    protected abstract String startPattern(String startLine);
 }
