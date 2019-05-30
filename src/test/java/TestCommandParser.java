@@ -18,7 +18,7 @@ public class TestCommandParser {
 
     @Test
     public void testForRevealingCommandWithEcho() {
-        String[] args = {Constants.ECHO_FLAG, Constants.REVEAL_IDENTIFIER, "20"};
+        String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "20"};
         Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
         Assert.assertEquals("Echo", parser.getParsedCommandMap(args).get("Flag"));
     }
@@ -32,7 +32,7 @@ public class TestCommandParser {
 
     @Test
     public void testForRecitingCommandWithEcho() {
-        String[] args = {Constants.ECHO_FLAG, Constants.RECITE_IDENTIFIER};
+        String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER};
         Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
         Assert.assertEquals("Echo", parser.getParsedCommandMap(args).get("Flag"));
     }
@@ -63,7 +63,7 @@ public class TestCommandParser {
 
     @Test
     public void testForIllegalCommandWithEcho() {
-        String[] args = {Constants.ECHO_FLAG,"--i-am-illegal"};
+        String[] args = {Constants.ECHO_IDENTIFIER,"--i-am-illegal"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("PoetryReader: --i-am-illegal: command not found");
         parser.getParsedCommandMap(args);
@@ -79,7 +79,7 @@ public class TestCommandParser {
 
     @Test
     public void testForRevealCommandAndEchoWithMoreArguments() {
-        String[] args = {Constants.ECHO_FLAG, Constants.REVEAL_IDENTIFIER, "20", "some", "other", "arguments"};
+        String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "20", "some", "other", "arguments"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("wrong reveal command: unnecessary arguments");
         parser.getParsedCommandMap(args);
@@ -95,7 +95,7 @@ public class TestCommandParser {
 
     @Test
     public void testForReciteCommandWithMoreArgumentsWithEcho() {
-        String[] args = {Constants.ECHO_FLAG, Constants.RECITE_IDENTIFIER, "20"};
+        String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER, "20"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("wrong recite command: unnecessary arguments");
         parser.getParsedCommandMap(args);

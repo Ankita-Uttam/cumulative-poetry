@@ -12,7 +12,7 @@ public class PoetryReader {
         try {
             Map<String, String> parsedMap = parser.getParsedCommandMap(args);
             String flag = parsedMap.get(Constants.KEY_FLAG);
-            RevealingFormat reveal = reader.getRevealingFormat(flag);
+            RevealingFormat reveal = RevealingFormat.getRevealingFormat(flag);
             String filePath = Constants.RESOURCE_PATH + Constants.FILE_NAME;
 
             switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
@@ -29,18 +29,6 @@ public class PoetryReader {
         }
 
         System.out.println(output);
-    }
-
-    private RevealingFormat getRevealingFormat(String flag) {
-        RevealingFormat reveal = null;
-        switch (flag) {
-            case "Echo":
-                reveal = new EchoReveal();
-                break;
-            case "None":
-                reveal = new DefaultReveal();
-        }
-        return reveal;
     }
 
     // Is it a utility function?

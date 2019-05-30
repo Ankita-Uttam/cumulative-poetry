@@ -1,5 +1,17 @@
 public abstract class RevealingFormat {
 
+    public static RevealingFormat getRevealingFormat(String flag) {
+        RevealingFormat reveal = null;
+        switch (flag) {
+            case "Echo":
+                reveal = new EchoReveal();
+                break;
+            case "None":
+                reveal = new DefaultReveal();
+        }
+        return reveal;
+    }
+
     String revealForDayN(String dayNumber, String[] storyLines) throws IllegalArgumentException {
         int _dayNumber = handleDayNumber(dayNumber, storyLines.length);
         int startIndex = storyLines.length - _dayNumber;
