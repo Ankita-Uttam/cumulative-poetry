@@ -1,12 +1,10 @@
 import java.io.*;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class PoetryReader {
 
     public static void main(String[] args) {
         CommandParser parser = new CommandParser();
-        PoetryReader reader = new PoetryReader();
 
         String output = null;
         try {
@@ -18,10 +16,10 @@ public class PoetryReader {
             switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
                 case "Reveal":
                     String dayNumber = parsedMap.get(Constants.KEY_DAY_NUMBER);
-                    output = reveal.revealForDayN(dayNumber, reader.getStory(filePath));
+                    output = reveal.revealForDayN(dayNumber, getStory(filePath));
                     break;
                 case "Recite":
-                    output = new Recite().recite(reader.getStory(filePath), reveal);
+                    output = new Recite().recite(getStory(filePath), reveal);
                     break;
             }
         } catch(IllegalArgumentException ex) {
@@ -32,7 +30,7 @@ public class PoetryReader {
     }
 
     // Is it a utility function?
-    String[] getStory(String filePath) {
+    public static String[] getStory(String filePath) {
         String story = "";
         try {
             File file = new File(filePath);

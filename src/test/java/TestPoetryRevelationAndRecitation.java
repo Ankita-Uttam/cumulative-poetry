@@ -11,7 +11,7 @@ public class TestPoetryRevelationAndRecitation {
     private EchoReveal echoRevealer = new EchoReveal();
 
     private String[] getStory() {
-        return new PoetryReader().getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME);
+        return PoetryReader.getStory(Constants.RESOURCE_PATH + Constants.FILE_NAME);
     }
 
     @Test
