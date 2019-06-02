@@ -9,11 +9,11 @@ public class PoetryReader {
         String output = null;
         try {
             Map<String, String> parsedMap = parser.getParsedCommandMap(args);
-            String flag = parsedMap.get(Constants.KEY_FLAG);
+            String flag = parsedMap.get(Constants.KEY_FLAG_1);
             RevealingFormat reveal = RevealingFormat.getRevealingFormat(flag);
             String filePath = Constants.RESOURCE_PATH + Constants.FILE_NAME;
 
-            switch (parser.getParsedCommandMap(args).get(Constants.KEY_ACTION)) {
+            switch (parsedMap.get(Constants.KEY_ACTION)) {
                 case "Reveal":
                     String dayNumber = parsedMap.get(Constants.KEY_DAY_NUMBER);
                     output = reveal.revealForDayN(dayNumber, getStory(filePath));
