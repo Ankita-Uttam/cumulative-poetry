@@ -12,6 +12,8 @@ public abstract class RevealingFormat {
         return reveal;
     }
 
+    // TODO - interface of CLI is not properly separated from domain
+    // TODO - dayNumber is needed to be a int, while you are passing a string...
     String revealForDayN(String dayNumber, String[] storyLines) throws IllegalArgumentException {
         int _dayNumber = handleDayNumber(dayNumber, storyLines.length);
         int startIndex = storyLines.length - _dayNumber;
@@ -53,6 +55,8 @@ public abstract class RevealingFormat {
         }
         return remainingLines;
     }
+
+    // TODO - what's pattern? - Is it necessary to invest words? I'll avoid if I can.
 
     protected abstract String remainingPattern(String storyLine);
 

@@ -2,8 +2,8 @@ public class Constants {
 
     public static final String KEY_ACTION = "Action";
     public static final String KEY_DAY_NUMBER = "DayNumber";
-    public static final String KEY_FLAG_FORMAT = "Format_Flag";
-    public static final String KEY_FLAG_ORDER = "Order_Flag";
+    public static final String KEY_FLAG_FORMAT = "FormatFlag";
+    public static final String KEY_FLAG_ORDER = "OrderFlag";
     public static final String KEY_SEED = "Seed";
     public static final String REVEAL = "Reveal";
     public static final String RECITE = "Recite";
@@ -15,6 +15,8 @@ public class Constants {
     public static final String ECHO_IDENTIFIER = "--echo";
     public static final String RANDOM_IDENTIFIER = "--random";
     public static final String SEED_IDENTIFIER = "--seed";
+    // TODO - can't hardcode from your home directory.
+    // TODO - Java resources mechanism
     public static final String RESOURCE_PATH = "/Users/ankita.uttam/practice/Java/cumulative-poetry/src/main/resources/";
     public static final String FILE_NAME = "poetry.txt";
     public static final String START_PHRASE = "This is ";

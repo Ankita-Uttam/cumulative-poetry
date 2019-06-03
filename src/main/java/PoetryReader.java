@@ -8,14 +8,14 @@ public class PoetryReader {
         String output = "";
         try {
             Map<String, String> parsedMap = parser.getParsedCommandMap(args);
-            String format_flag = parsedMap.get(Constants.KEY_FLAG_FORMAT);
-            String order_flag = parsedMap.get(Constants.KEY_FLAG_ORDER);
+            String formatFlag = parsedMap.get(Constants.KEY_FLAG_FORMAT);
+            String orderFlag = parsedMap.get(Constants.KEY_FLAG_ORDER);
             String seed = parsedMap.get(Constants.KEY_SEED);
-            RevealingFormat reveal = RevealingFormat.getRevealingFormat(format_flag);
+            RevealingFormat reveal = RevealingFormat.getRevealingFormat(formatFlag);
             String filePath = Constants.RESOURCE_PATH + Constants.FILE_NAME;
             String[] story = null;
 
-            switch (order_flag) {
+            switch (orderFlag) {
                 case "Random":
                     RandomStory randomStory = new RandomStory();
                     output += randomStory.seedInfo(seed);

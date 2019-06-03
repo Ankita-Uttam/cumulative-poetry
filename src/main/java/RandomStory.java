@@ -10,7 +10,7 @@ class RandomStory {
         String[] randomStory = new String[story.length];
         int lastIndex = story.length - 1;
         List<String> _story = new ArrayList<>();
-        for (int i = 0; i < lastIndex; i++) {
+        for (int i = 0; i < lastIndex; i++) { // TODO - too much implicit logic
             _story.add(story[i]);
         }
         Collections.shuffle(_story, randomSeed(seed));
