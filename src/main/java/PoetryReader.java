@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 public class PoetryReader {
@@ -34,7 +35,7 @@ public class PoetryReader {
                     output += new Recite().recite(story, reveal);
                     break;
             }
-        } catch(IllegalArgumentException ex) {
+        } catch(IllegalArgumentException | FileNotFoundException ex) {
             output = ex.getMessage();
         }
 
