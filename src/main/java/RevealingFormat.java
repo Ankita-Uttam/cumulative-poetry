@@ -21,18 +21,17 @@ public abstract class RevealingFormat {
 
     private int handleDayNumber(String day, int linesCount) throws IllegalArgumentException{
         int dayNumber;
-        final String message = "wrong reveal command: illegal day number";
         try {
             dayNumber = Integer.parseInt(day);
         } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException(message);
+            throw new IllegalArgumentException(Constants.ILLEGAL_DAY);
         }
 
         if (dayNumber >  linesCount)
             dayNumber = linesCount;
 
         if (dayNumber == Constants.DAY_ZERO) {
-            throw new IllegalArgumentException(message);
+            throw new IllegalArgumentException(Constants.ILLEGAL_DAY);
         }
 
         return dayNumber;

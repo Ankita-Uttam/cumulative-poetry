@@ -2,8 +2,8 @@ public class Constants {
 
     public static final String KEY_ACTION = "Action";
     public static final String KEY_DAY_NUMBER = "DayNumber";
-    public static final String KEY_FLAG_1 = "Flag1";
-    public static final String KEY_FLAG_2 = "Flag2";
+    public static final String KEY_FLAG_FORMAT = "Format_Flag";
+    public static final String KEY_FLAG_ORDER = "Order_Flag";
     public static final String KEY_SEED = "Seed";
     public static final String REVEAL = "Reveal";
     public static final String RECITE = "Recite";
@@ -23,4 +23,11 @@ public class Constants {
     public static final int START_INDEX = 0;
     public static final String POS_START = "start";
     public static final String POS_END = "end";
+    public static final String NO_ARGS = "Insufficient arguments: at least 1 arg expected";
+    public static final String EXTRA_ARGS = "too many arguments: at most 6 args expected";
+    public static final String CMD_NOT_FOUND = "PoetryReader: command not found";
+    public static final String INSUFFICIENT_ARGS = "Insufficient arguments: at least 1 more arg expected";
+    public static final String ILLEGAL_DAY = "wrong command: illegal day number";
+    public static final String ILLEGAL_SEED = "wrong command: illegal seed value";
+    public static final String DEFAULT_SEED = "123";
 }

@@ -4,14 +4,12 @@ import java.util.Map;
 class CommandParser {
 
     private static final int MIN_ARGUMENTS_REQUIRED = 1;
-    private final String CMD_NOT_FOUND = "PoetryReader: command not found";
-    private final String INSUFFICIENT_ARGS = "Insufficient arguments: at least 1 more arg expected";
 
     Map<String, String> getParsedCommandMap(String[] arguments) {
         Map<String, String> parsedMap = new HashMap<>();
 
-        parsedMap.put(Constants.KEY_FLAG_1, Constants.FLAG_NONE);
-        parsedMap.put(Constants.KEY_FLAG_2, Constants.FLAG_NONE);
+        parsedMap.put(Constants.KEY_FLAG_FORMAT, Constants.FLAG_NONE);
+        parsedMap.put(Constants.KEY_FLAG_ORDER, Constants.FLAG_NONE);
 
         handleIllegalCommands(arguments);
         handleCorrectCommands(arguments, parsedMap);
@@ -20,31 +18,30 @@ class CommandParser {
     }
 
     private void parseRemainArguments(int argsCount, Map<String, String> parsedMap, String[] args) {
-        final String DEFAULT_SEED = "123";
-            switch (argsCount) {
-                case 2:
-                    if (args[0].equalsIgnoreCase(Constants.ECHO_IDENTIFIER))
-                        parsedMap.replace(Constants.KEY_FLAG_1, Constants.FLAG_ECHO);
-                    else {
-                        parsedMap.replace(Constants.KEY_FLAG_2, Constants.FLAG_RANDOM);
-                        parsedMap.put(Constants.KEY_SEED, DEFAULT_SEED);
-                    }
-                    break;
-                case 3:
-                    parsedMap.replace(Constants.KEY_FLAG_1, Constants.FLAG_ECHO);
-                    parsedMap.replace(Constants.KEY_FLAG_2, Constants.FLAG_RANDOM);
-                    parsedMap.put(Constants.KEY_SEED, DEFAULT_SEED);
-                    break;
-                case 4:
-                    parsedMap.replace(Constants.KEY_FLAG_2, Constants.FLAG_RANDOM);
-                    parsedMap.put(Constants.KEY_SEED, args[args.length - 1]);
-                    break;
-                case 5:
-                    parsedMap.replace(Constants.KEY_FLAG_1, Constants.FLAG_ECHO);
-                    parsedMap.replace(Constants.KEY_FLAG_2, Constants.FLAG_RANDOM);
-                    parsedMap.put(Constants.KEY_SEED, args[args.length - 1]);
-                    break;
-            }
+        switch (argsCount) {
+            case 2:
+                if (args[0].equalsIgnoreCase(Constants.ECHO_IDENTIFIER))
+                    parsedMap.replace(Constants.KEY_FLAG_FORMAT, Constants.FLAG_ECHO);
+                else {
+                    parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
+                    parsedMap.put(Constants.KEY_SEED, Constants.DEFAULT_SEED);
+                }
+                break;
+            case 3:
+                parsedMap.replace(Constants.KEY_FLAG_FORMAT, Constants.FLAG_ECHO);
+                parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
+                parsedMap.put(Constants.KEY_SEED, Constants.DEFAULT_SEED);
+                break;
+            case 4:
+                parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
+                parsedMap.put(Constants.KEY_SEED, args[args.length - 1]);
+                break;
+            case 5:
+                parsedMap.replace(Constants.KEY_FLAG_FORMAT, Constants.FLAG_ECHO);
+                parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
+                parsedMap.put(Constants.KEY_SEED, args[args.length - 1]);
+                break;
+        }
     }
 
     private void handleCorrectCommands(String[] args, Map<String, String> parsedMap) {
@@ -56,10 +53,8 @@ class CommandParser {
                 parseRemainArguments(args.length, parsedMap, args);
             } else {
                 parsedMap.put(Constants.KEY_ACTION, Constants.REVEAL);
-                if (isEcho(args[0]))
-                    parsedMap.put(Constants.KEY_DAY_NUMBER, args[2]);
-                else
-                    parsedMap.put(Constants.KEY_DAY_NUMBER, args[1]);
+                if (isEcho(args[0])) parsedMap.put(Constants.KEY_DAY_NUMBER, args[2]);
+                else parsedMap.put(Constants.KEY_DAY_NUMBER, args[1]);
                 parseRemainArguments(args.length - 1, parsedMap, args);
             }
         }
@@ -72,12 +67,10 @@ class CommandParser {
     }
 
     private void handleEdgeCases(int argsCount) {
-        final String NO_ARGS = "Insufficient arguments: at least 1 arg expected";
-        final String EXTRA_ARGS = "too many arguments: at most 6 args expected";
         if (argsCount < 1) {
-            throw new IllegalArgumentException(NO_ARGS);
+            throw new IllegalArgumentException(Constants.NO_ARGS);
         } else if (argsCount > 6) {
-            throw new IllegalArgumentException(EXTRA_ARGS);
+            throw new IllegalArgumentException(Constants.EXTRA_ARGS);
         }
     }
 
@@ -88,23 +81,22 @@ class CommandParser {
 
             handleFormat(args[formatIndex]);
             handleOptions(args, getOptionsIndex(args, formatIndex));
-        } catch(IndexOutOfBoundsException ex) {
-            throw new IllegalArgumentException(INSUFFICIENT_ARGS);
+        } catch (IndexOutOfBoundsException ex) {
+            throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
         }
     }
 
     private void handleFormat(String arg) {
         if (!(isRecite(arg) || isReveal(arg)))
-            throw new IllegalArgumentException(CMD_NOT_FOUND);
+            throw new IllegalArgumentException(Constants.CMD_NOT_FOUND);
     }
 
     private int getOptionsIndex(String[] args, int formatIndex) {
         int optionsIndex = 0;
-        if (isRecite(args[formatIndex]))
-            optionsIndex = formatIndex + 1;
+        if (isRecite(args[formatIndex])) optionsIndex = formatIndex + 1;
         else if (isReveal(args[formatIndex])) {
             if (args.length <= formatIndex + 1) {
-                throw new IllegalArgumentException(INSUFFICIENT_ARGS);
+                throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
             }
             optionsIndex = formatIndex + 2;
         }
@@ -117,14 +109,14 @@ class CommandParser {
             switch (argIndex - index) {
                 case 0:
                     if (!isRandom(args[argIndex]))
-                        throw new IllegalArgumentException(CMD_NOT_FOUND);
+                        throw new IllegalArgumentException(Constants.CMD_NOT_FOUND);
                     break;
                 case 1:
                     if (!isSeed(args[argIndex]))
-                        throw new IllegalArgumentException(CMD_NOT_FOUND);
+                        throw new IllegalArgumentException(Constants.CMD_NOT_FOUND);
                     else if (isSeed(args[argIndex])) {
                         if (args.length <= argIndex + 1) {
-                            throw new IllegalArgumentException(INSUFFICIENT_ARGS);
+                            throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
                         }
                     }
                     break;
