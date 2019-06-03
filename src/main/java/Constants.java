@@ -30,4 +30,5 @@ public class Constants {
     public static final String ILLEGAL_DAY = "wrong command: illegal day number";
     public static final String ILLEGAL_SEED = "wrong command: illegal seed value";
     public static final String DEFAULT_SEED = "123";
+    public static final String SEED_INFO_FORMAT = "Seed used - ";
 }

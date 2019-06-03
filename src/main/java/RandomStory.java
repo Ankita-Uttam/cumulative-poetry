@@ -20,10 +20,10 @@ class RandomStory {
     }
 
     private Random randomSeed(String seed) {
-        return new Random(getSeed(seed));
+        return new Random(seedValue(seed));
     }
 
-    private long getSeed(String seed) {
+    private long seedValue(String seed) {
         try {
             return Long.parseLong(seed);
         } catch (NumberFormatException ex) {
@@ -32,7 +32,7 @@ class RandomStory {
     }
 
     String seedInfo(String seed) {
-        String info = "Seed used - " + getSeed(seed);
+        String info = Constants.SEED_INFO_FORMAT + seedValue(seed);
         return StringFormatter.addLineFeed(info, Constants.POS_END);
     }
 }
