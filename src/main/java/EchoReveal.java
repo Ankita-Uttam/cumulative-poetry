@@ -1,10 +1,12 @@
 class EchoReveal extends RevealingFormat {
 
     protected String startPattern(String startLine) {
+
         return firstLine(startLine) + repeatLines(startLine, 1);
     }
 
     protected String remainingPattern(String storyLine) {
+
         return repeatLines(storyLine, 2);
     }
 

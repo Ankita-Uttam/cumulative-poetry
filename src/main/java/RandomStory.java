@@ -1,6 +1,7 @@
-import com.sun.org.apache.bcel.internal.Const;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Random;
 
 class RandomStory {
 
@@ -31,6 +32,7 @@ class RandomStory {
     }
 
     String seedInfo(String seed) {
-        return StringFormatter.addLineFeed("Seed used - " + getSeed(seed), Constants.POS_END);
+        String info = "Seed used - " + getSeed(seed);
+        return StringFormatter.addLineFeed(info, Constants.POS_END);
     }
 }
