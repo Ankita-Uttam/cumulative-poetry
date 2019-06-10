@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
@@ -5,7 +6,7 @@ import java.util.Random;
 
 class RandomStory {
 
-    String[] getStory(String filepath, String seed) {
+    String[] getStory(String filepath, String seed) throws FileNotFoundException {
         String[] story = DefaultStory.getStory(filepath);
         String[] randomStory = new String[story.length];
         int lastIndex = story.length - 1;
@@ -24,11 +25,7 @@ class RandomStory {
     }
 
     private long seedValue(String seed) {
-        try {
-            return Long.parseLong(seed);
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_SEED);
-        }
+        return Long.parseLong(seed);
     }
 
     String seedInfo(String seed) {

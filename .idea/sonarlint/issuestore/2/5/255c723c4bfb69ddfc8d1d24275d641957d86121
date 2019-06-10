@@ -1,0 +1,8 @@
+
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(½ÙŒ¼
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬Æ´Ò
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(°Ù—·
+Vsquid:S1610":Convert the abstract class "StoryOrder" into an interface.(Ô¼ü†ýÿÿÿÿ
+Wsquid:UselessImportCheck".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ
+Msquid:UselessImportCheck")Remove this unused import 'java.io.File'.(†Ð¥Å
+csquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ

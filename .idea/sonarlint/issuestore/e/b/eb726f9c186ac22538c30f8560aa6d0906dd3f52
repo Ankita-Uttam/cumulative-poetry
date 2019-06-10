@@ -1,0 +1,6 @@
+
+bsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(ÁÅ®
+P"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(ÁÅ®
+hsquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(Œ°38î•Îë³-
+isquid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(®Ü„ş8î•Îë³-
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÓÑûÿ8›”İë³-

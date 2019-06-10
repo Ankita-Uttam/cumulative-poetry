@@ -1,64 +1,38 @@
 public abstract class RevealingFormat {
 
     public static RevealingFormat getRevealingFormat(String flag) {
-        RevealingFormat reveal = null;
         switch (flag) {
             case "Echo":
-                reveal = new EchoReveal();
-                break;
+                return new EchoReveal();
             case "None":
-                reveal = new DefaultReveal();
+                return new DefaultReveal();
         }
-        return reveal;
+        return null;
     }
 
-    // TODO - interface of CLI is not properly separated from domain
-    // TODO - dayNumber is needed to be a int, while you are passing a string...
-    String revealForDayN(String dayNumber, String[] storyLines) throws IllegalArgumentException {
-        int _dayNumber = handleDayNumber(dayNumber, storyLines.length);
-        int startIndex = storyLines.length - _dayNumber;
-        String revelation = startPattern(storyLines[startIndex]);
-        return revelation + remainingLines(startIndex, storyLines);
-    }
+    protected abstract String line(String line);
 
-    private int handleDayNumber(String day, int linesCount) throws IllegalArgumentException{
-        int dayNumber;
-        try {
-            dayNumber = Integer.parseInt(day);
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_DAY);
-        }
-
-        if (dayNumber >  linesCount)
-            dayNumber = linesCount;
-
-        if (dayNumber == Constants.DAY_ZERO) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_DAY);
-        }
-
-        return dayNumber;
-    }
 
     String formattedStoryLine(String storyLine) {
-        String formattedLine = StringFormatter.addTab(storyLine, Constants.POS_START);
-        return StringFormatter.addLineFeed(formattedLine, Constants.POS_START);
+        String formattedLine = StringFormatter.addLineFeed(storyLine, Constants.POS_END);
+        return StringFormatter.addTab(formattedLine, Constants.POS_END);
     }
 
     String firstLine(String startLine) {
         return Constants.START_PHRASE + startLine;
     }
 
-    private String remainingLines(int index, String[] storyLines) {
-        String remainingLines = "";
-        for (int i = index + 1; i < storyLines.length; i++) {
-            remainingLines += remainingPattern(storyLines[i]);
-        }
-        return remainingLines;
-    }
+//    private String remainingLines(int index, String[] storyLines) {
+//        String remainingLines = "";
+//        for (int i = index + 1; i < storyLines.length; i++) {
+//            remainingLines += remainingPattern(storyLines[i]);
+//        }
+//        return remainingLines;
+//    }
 
     // TODO - what's pattern? - Is it necessary to invest words? I'll avoid if I can.
 
-    protected abstract String remainingPattern(String storyLine);
-
-    protected abstract String startPattern(String startLine);
+//    protected abstract String remainingPattern(String storyLine);
+//
+//    protected abstract String startPattern(String startLine);
 }

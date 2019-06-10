@@ -83,6 +83,8 @@ class CommandParser {
             handleOptions(args, getOptionsIndex(args, formatIndex));
         } catch (IndexOutOfBoundsException ex) {
             throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException(Constants.ILLEGAL_ARG_TYPE);
         }
     }
 
@@ -95,12 +97,14 @@ class CommandParser {
         int optionsIndex = 0;
         if (isRecite(args[formatIndex])) optionsIndex = formatIndex + 1;
         else if (isReveal(args[formatIndex])) {
-            if (args.length <= formatIndex + 1) {
-                throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
-            }
+            handleNumberArgument(args[formatIndex + 1]);
             optionsIndex = formatIndex + 2;
         }
         return optionsIndex;
+    }
+
+    private void handleNumberArgument(String arg) {
+        Long.parseLong(arg);
     }
 
     private void handleOptions(String[] args, int index) {
@@ -115,9 +119,7 @@ class CommandParser {
                     if (!isSeed(args[argIndex]))
                         throw new IllegalArgumentException(Constants.CMD_NOT_FOUND);
                     else if (isSeed(args[argIndex])) {
-                        if (args.length <= argIndex + 1) {
-                            throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
-                        }
+                        handleNumberArgument(args[argIndex + 1]);
                     }
                     break;
             }

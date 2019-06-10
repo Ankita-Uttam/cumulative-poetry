@@ -1,3 +1,5 @@
+import jdk.internal.loader.Resource;
+
 import java.io.FileNotFoundException;
 import java.util.Map;
 
@@ -5,25 +7,24 @@ public class PoetryReader {
 
     public static void main(String[] args) {
         CommandParser parser = new CommandParser();
-
         String output = "";
+
         try {
             Map<String, String> parsedMap = parser.getParsedCommandMap(args);
             String formatFlag = parsedMap.get(Constants.KEY_FLAG_FORMAT);
             String orderFlag = parsedMap.get(Constants.KEY_FLAG_ORDER);
             String seed = parsedMap.get(Constants.KEY_SEED);
-            RevealingFormat reveal = RevealingFormat.getRevealingFormat(formatFlag);
-            String filePath = Constants.RESOURCE_PATH + Constants.FILE_NAME;
+            Reveal reveal = new Reveal(formatFlag);
             String[] story = null;
 
             switch (orderFlag) {
                 case "Random":
                     RandomStory randomStory = new RandomStory();
                     output += randomStory.seedInfo(seed);
-                    story = randomStory.getStory(filePath, seed);
+                    story = randomStory.getStory(getFilePath(Constants.FILE_NAME), seed);
                     break;
                 case "None":
-                    story = DefaultStory.getStory(filePath);
+                    story = DefaultStory.getStory(getFilePath(Constants.FILE_NAME));
             }
 
             switch (parsedMap.get(Constants.KEY_ACTION)) {
@@ -40,5 +41,10 @@ public class PoetryReader {
         }
 
         System.out.println(output);
+    }
+
+    private static String getFilePath(String relativePath) {
+//        return PoetryReader.class.getClassLoader().getResource(relativePath).toExternalForm();
+        return relativePath;
     }
 }

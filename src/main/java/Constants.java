@@ -15,10 +15,7 @@ public class Constants {
     public static final String ECHO_IDENTIFIER = "--echo";
     public static final String RANDOM_IDENTIFIER = "--random";
     public static final String SEED_IDENTIFIER = "--seed";
-    // TODO - can't hardcode from your home directory.
-    // TODO - Java resources mechanism
-    public static final String RESOURCE_PATH = "/Users/ankita.uttam/practice/Java/cumulative-poetry/src/main/resources/";
-    public static final String FILE_NAME = "poetry.txt";
+    public static final String FILE_NAME = "/Users/ankita.uttam/practice/Java/cumulative-poetry/src/main/resources/poetry.txt";
     public static final String START_PHRASE = "This is ";
     public static final int FIRST_DAY = 1;
     public static final int DAY_ZERO = 0;
@@ -29,8 +26,7 @@ public class Constants {
     public static final String EXTRA_ARGS = "too many arguments: at most 6 args expected";
     public static final String CMD_NOT_FOUND = "PoetryReader: command not found";
     public static final String INSUFFICIENT_ARGS = "Insufficient arguments: at least 1 more arg expected";
-    public static final String ILLEGAL_DAY = "wrong command: illegal day number";
-    public static final String ILLEGAL_SEED = "wrong command: illegal seed value";
     public static final String DEFAULT_SEED = "123";
     public static final String SEED_INFO_FORMAT = "Seed used - ";
+    public static final String ILLEGAL_ARG_TYPE = "illegal argument type: required number got string";
 }
