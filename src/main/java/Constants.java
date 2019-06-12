@@ -1,10 +1,10 @@
 public class Constants {
 
-    public static final String KEY_ACTION = "Action";
-    public static final String KEY_DAY_NUMBER = "DayNumber";
-    public static final String KEY_FLAG_FORMAT = "FormatFlag";
-    public static final String KEY_FLAG_ORDER = "OrderFlag";
-    public static final String KEY_SEED = "Seed";
+//    public static final String KEY_ACTION = "Action";
+//    public static final String KEY_DAY_NUMBER = "DayNumber";
+//    public static final String KEY_FLAG_FORMAT = "FormatFlag";
+//    public static final String KEY_FLAG_ORDER = "OrderFlag";
+//    public static final String KEY_SEED = "Seed";
     public static final String REVEAL = "Reveal";
     public static final String RECITE = "Recite";
     public static final String FLAG_ECHO = "Echo";
@@ -26,7 +26,9 @@ public class Constants {
     public static final String EXTRA_ARGS = "too many arguments: at most 6 args expected";
     public static final String CMD_NOT_FOUND = "PoetryReader: command not found";
     public static final String INSUFFICIENT_ARGS = "Insufficient arguments: at least 1 more arg expected";
-    public static final String DEFAULT_SEED = "123";
+    public static final int DEFAULT_SEED = 123;
     public static final String SEED_INFO_FORMAT = "Seed used - ";
-    public static final String ILLEGAL_ARG_TYPE = "illegal argument type: required number got string";
+    public static final String WRONG_ARG_TYPE = "wrong argument type: required number got string";
+    public static final String NULL_SEED_VALUE = null;
+    public static final String ILLEGAL_DAY = "illegal day number";
 }

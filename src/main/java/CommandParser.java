@@ -1,61 +1,108 @@
-import java.util.HashMap;
-import java.util.Map;
-
 class CommandParser {
 
     private static final int MIN_ARGUMENTS_REQUIRED = 1;
+    private String formatFlag;
+    private String orderFlag;
+    private String actionFlag;
+    private Integer dayNumber;
+    private Integer seedValue;
 
-    Map<String, String> getParsedCommandMap(String[] arguments) {
-        Map<String, String> parsedMap = new HashMap<>();
-
-        parsedMap.put(Constants.KEY_FLAG_FORMAT, Constants.FLAG_NONE);
-        parsedMap.put(Constants.KEY_FLAG_ORDER, Constants.FLAG_NONE);
-
-        handleIllegalCommands(arguments);
-        handleCorrectCommands(arguments, parsedMap);
-
-        return parsedMap;
+    public String getFormatFlag() {
+        return formatFlag;
     }
 
-    private void parseRemainArguments(int argsCount, Map<String, String> parsedMap, String[] args) {
+    private void setFormatFlag(String formatFlag) {
+        this.formatFlag = formatFlag;
+    }
+
+    public String getOrderFlag() {
+        return orderFlag;
+    }
+
+    private void setOrderFlag(String orderFlag) {
+        this.orderFlag = orderFlag;
+    }
+
+    public String getActionFlag() {
+        return actionFlag;
+    }
+
+    private void setActionFlag(String actionFlag) {
+        this.actionFlag = actionFlag;
+    }
+
+    public Integer getDayNumber() {
+        return dayNumber;
+    }
+
+    private void setDayNumber(Integer dayNumber) {
+        this.dayNumber = dayNumber;
+    }
+
+    public Integer getSeedValue() {
+        return seedValue;
+    }
+
+    private void setSeedValue(Integer seedValue) {
+        this.seedValue = seedValue;
+    }
+
+    CommandParser (String[] arguments) {
+        try {
+            setFormatFlag(Constants.FLAG_NONE);
+            setOrderFlag(Constants.FLAG_NONE);
+
+            handleIllegalCommands(arguments);
+            handleCorrectCommands(arguments);
+        } catch(NumberFormatException ex) {
+            throw new IllegalArgumentException(Constants.WRONG_ARG_TYPE);
+        }
+    }
+
+    private void parseRemainArguments(int argsCount, String[] args) {
         switch (argsCount) {
             case 2:
-                if (args[0].equalsIgnoreCase(Constants.ECHO_IDENTIFIER))
-                    parsedMap.replace(Constants.KEY_FLAG_FORMAT, Constants.FLAG_ECHO);
+                if (args[0].equalsIgnoreCase(Constants.ECHO_IDENTIFIER)) {
+                    setFormatFlag(Constants.FLAG_ECHO);
+                }
                 else {
-                    parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
-                    parsedMap.put(Constants.KEY_SEED, Constants.DEFAULT_SEED);
+                    setOrderFlag(Constants.FLAG_RANDOM);
+                    setSeedValue(Constants.DEFAULT_SEED);
                 }
                 break;
             case 3:
-                parsedMap.replace(Constants.KEY_FLAG_FORMAT, Constants.FLAG_ECHO);
-                parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
-                parsedMap.put(Constants.KEY_SEED, Constants.DEFAULT_SEED);
+                setFormatFlag(Constants.FLAG_ECHO);
+                setOrderFlag(Constants.FLAG_RANDOM);
+                setSeedValue(Constants.DEFAULT_SEED);
                 break;
             case 4:
-                parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
-                parsedMap.put(Constants.KEY_SEED, args[args.length - 1]);
+                int seedIndex = args.length - 1;
+                setOrderFlag(Constants.FLAG_RANDOM);
+                setSeedValue(handleNumberArgument(args[seedIndex]));
                 break;
             case 5:
-                parsedMap.replace(Constants.KEY_FLAG_FORMAT, Constants.FLAG_ECHO);
-                parsedMap.replace(Constants.KEY_FLAG_ORDER, Constants.FLAG_RANDOM);
-                parsedMap.put(Constants.KEY_SEED, args[args.length - 1]);
+                int _seedIndex = args.length - 1;
+                setFormatFlag(Constants.FLAG_ECHO);
+                setOrderFlag(Constants.FLAG_RANDOM);
+                setSeedValue(handleNumberArgument(args[_seedIndex]));
                 break;
         }
     }
 
-    private void handleCorrectCommands(String[] args, Map<String, String> parsedMap) {
+    private void handleCorrectCommands(String[] args) {
         if (args.length == MIN_ARGUMENTS_REQUIRED) {
-            parsedMap.put(Constants.KEY_ACTION, Constants.RECITE);
+            setActionFlag(Constants.RECITE);
         } else {
             if ((args[0] + args[1]).contains(Constants.RECITE_IDENTIFIER)) {
-                parsedMap.put(Constants.KEY_ACTION, Constants.RECITE);
-                parseRemainArguments(args.length, parsedMap, args);
+                setActionFlag(Constants.RECITE);
+                parseRemainArguments(args.length, args);
             } else {
-                parsedMap.put(Constants.KEY_ACTION, Constants.REVEAL);
-                if (isEcho(args[0])) parsedMap.put(Constants.KEY_DAY_NUMBER, args[2]);
-                else parsedMap.put(Constants.KEY_DAY_NUMBER, args[1]);
-                parseRemainArguments(args.length - 1, parsedMap, args);
+                setActionFlag(Constants.REVEAL);
+                if (isEcho(args[0]))
+                    setDayNumber(handleNumberArgument(args[2]));
+                else
+                    setDayNumber(handleNumberArgument(args[1]));
+                parseRemainArguments(args.length - 1, args);
             }
         }
     }
@@ -83,8 +130,6 @@ class CommandParser {
             handleOptions(args, getOptionsIndex(args, formatIndex));
         } catch (IndexOutOfBoundsException ex) {
             throw new IllegalArgumentException(Constants.INSUFFICIENT_ARGS);
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_ARG_TYPE);
         }
     }
 
@@ -103,8 +148,8 @@ class CommandParser {
         return optionsIndex;
     }
 
-    private void handleNumberArgument(String arg) {
-        Long.parseLong(arg);
+    private Integer handleNumberArgument(String arg) {
+        return Integer.parseInt(arg);
     }
 
     private void handleOptions(String[] args, int index) {

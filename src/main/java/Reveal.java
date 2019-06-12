@@ -6,7 +6,7 @@ class Reveal {
         revealingFormat = RevealingFormat.getRevealingFormat(flag);
     }
 
-    String revealForDayN(String dayNumber, String[] storyLines) {
+    String revealForDayN(int dayNumber, String[] storyLines) {
         int _dayNumber = handleDayNumber(dayNumber, storyLines.length);
         int startIndex = storyLines.length - _dayNumber;
         String revelation = Constants.START_PHRASE;
@@ -16,14 +16,14 @@ class Reveal {
         return revelation;
     }
 
-    private int handleDayNumber(String day, int linesCount) {
-        int dayNumber = Integer.parseInt(day);
+    private int handleDayNumber(int day, int linesCount) {
+        int dayNumber = day;
 
         if (dayNumber >  linesCount)
             dayNumber = linesCount;
 
-        if (dayNumber == Constants.DAY_ZERO) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_ARG_TYPE);
+        if (dayNumber <= Constants.DAY_ZERO) {
+            throw new IllegalArgumentException(Constants.ILLEGAL_DAY);
         }
 
         return dayNumber;

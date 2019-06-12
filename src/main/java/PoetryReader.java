@@ -1,35 +1,25 @@
 import jdk.internal.loader.Resource;
 
 import java.io.FileNotFoundException;
-import java.util.Map;
 
 public class PoetryReader {
 
     public static void main(String[] args) {
-        CommandParser parser = new CommandParser();
+        CommandParser parser = new CommandParser(args);
         String output = "";
 
         try {
-            Map<String, String> parsedMap = parser.getParsedCommandMap(args);
-            String formatFlag = parsedMap.get(Constants.KEY_FLAG_FORMAT);
-            String orderFlag = parsedMap.get(Constants.KEY_FLAG_ORDER);
-            String seed = parsedMap.get(Constants.KEY_SEED);
+            String formatFlag = parser.getFormatFlag();
+            String orderFlag = parser.getOrderFlag();
+            Integer seed = parser.getSeedValue();
             Reveal reveal = new Reveal(formatFlag);
-            String[] story = null;
+            StoryOrder order = StoryOrder.getStoryOrder(orderFlag, seed);
+            String[] story = order.getStory(getFilePath(Constants.FILE_NAME));
 
-            switch (orderFlag) {
-                case "Random":
-                    RandomStory randomStory = new RandomStory();
-                    output += randomStory.seedInfo(seed);
-                    story = randomStory.getStory(getFilePath(Constants.FILE_NAME), seed);
-                    break;
-                case "None":
-                    story = DefaultStory.getStory(getFilePath(Constants.FILE_NAME));
-            }
-
-            switch (parsedMap.get(Constants.KEY_ACTION)) {
+            System.out.println(parser.getActionFlag());
+            switch (parser.getActionFlag()) {
                 case "Reveal":
-                    String dayNumber = parsedMap.get(Constants.KEY_DAY_NUMBER);
+                    int dayNumber = parser.getDayNumber();
                     output += reveal.revealForDayN(dayNumber, story);
                     break;
                 case "Recite":
@@ -44,6 +34,8 @@ public class PoetryReader {
     }
 
     private static String getFilePath(String relativePath) {
+//        System.out.println(PoetryReader.class.getResource("/poetry.txt").getFile());
+
 //        return PoetryReader.class.getClassLoader().getResource(relativePath).toExternalForm();
         return relativePath;
     }

@@ -7,98 +7,107 @@ public class TestCommandParser {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-    private CommandParser parser = new CommandParser();
 
     @Test
     public void testForRevealingCommand() {
         String[] args = {Constants.REVEAL_IDENTIFIER, "20"};
-        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals("20", parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.REVEAL, parser.getActionFlag());
+        Assert.assertEquals(20, (long)parser.getDayNumber());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getOrderFlag());
     }
 
     @Test
     public void testForRevealingCommandWithEcho() {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "20"};
-        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals("20", parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
-        Assert.assertEquals(Constants.FLAG_ECHO, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.REVEAL, parser.getActionFlag());
+        Assert.assertEquals(20, (long)parser.getDayNumber());
+        Assert.assertEquals(Constants.FLAG_ECHO, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getOrderFlag());
     }
 
     @Test
     public void testForRecitingCommand() {
         String[] args = {Constants.RECITE_IDENTIFIER};
-        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.RECITE, parser.getActionFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getOrderFlag());
     }
 
     @Test
     public void testForRecitingCommandWithEcho() {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER};
-        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals(Constants.FLAG_ECHO, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.RECITE, parser.getActionFlag());
+        Assert.assertEquals(Constants.FLAG_ECHO, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getOrderFlag());
     }
 
     @Test
     public void testForRandomReciteWithoutSeed() {
         String[] args = {Constants.RECITE_IDENTIFIER, Constants.RANDOM_IDENTIFIER};
-        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals(Constants.DEFAULT_SEED, parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.RECITE, parser.getActionFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(Constants.DEFAULT_SEED, (long)parser.getSeedValue());
     }
 
     @Test
     public void testForEchoRandomReciteWithoutSeed() {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER, Constants.RANDOM_IDENTIFIER};
-        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals(Constants.FLAG_ECHO, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals(Constants.DEFAULT_SEED, parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.RECITE, parser.getActionFlag());
+        Assert.assertEquals(Constants.FLAG_ECHO, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(Constants.DEFAULT_SEED, (long)parser.getSeedValue());
     }
 
     @Test
     public void testForRandomReciteWithSeed() {
         String[] args = {Constants.RECITE_IDENTIFIER, Constants.RANDOM_IDENTIFIER, Constants.SEED_IDENTIFIER, "10"};
-        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals("10", parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.RECITE, parser.getActionFlag());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(10, (long)parser.getSeedValue());
     }
 
     @Test
     public void testForEchoRandomReciteWithSeed() {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER, Constants.RANDOM_IDENTIFIER,
                 Constants.SEED_IDENTIFIER, "10"};
-        Assert.assertEquals(Constants.RECITE, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals(Constants.FLAG_ECHO, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals("10", parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.RECITE, parser.getActionFlag());
+        Assert.assertEquals(Constants.FLAG_ECHO, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(10, (long)parser.getSeedValue());
     }
 
     @Test
     public void testForRandomRevealWithoutSeed() {
         String[] args = {Constants.REVEAL_IDENTIFIER, "5", Constants.RANDOM_IDENTIFIER};
-        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals("5", parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals(Constants.DEFAULT_SEED, parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.REVEAL, parser.getActionFlag());
+        Assert.assertEquals(5, (long)parser.getDayNumber());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(Constants.DEFAULT_SEED, (long)parser.getSeedValue());
     }
 
     @Test
     public void testForRandomRevealWithSeed() {
         String[] args = {Constants.REVEAL_IDENTIFIER, "5", Constants.RANDOM_IDENTIFIER, Constants.SEED_IDENTIFIER,
                 "10"};
-        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals("5", parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
-        Assert.assertEquals(Constants.FLAG_NONE, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals("10", parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.REVEAL, parser.getActionFlag());
+        Assert.assertEquals(5, (long)parser.getDayNumber());
+        Assert.assertEquals(Constants.FLAG_NONE, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(10, (long)parser.getSeedValue());
     }
 
     @Test
@@ -106,21 +115,23 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "5", Constants.RANDOM_IDENTIFIER,
                 Constants.SEED_IDENTIFIER,
                 "10"};
-        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals("5", parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
-        Assert.assertEquals(Constants.FLAG_ECHO, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals("10", parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.REVEAL, parser.getActionFlag());
+        Assert.assertEquals(5, (long)parser.getDayNumber());
+        Assert.assertEquals(Constants.FLAG_ECHO, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(10, (long)parser.getSeedValue());
     }
 
     @Test
     public void testForEchoRandomRevealWithoutSeed() {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "5", Constants.RANDOM_IDENTIFIER};
-        Assert.assertEquals(Constants.REVEAL, parser.getParsedCommandMap(args).get(Constants.KEY_ACTION));
-        Assert.assertEquals("5", parser.getParsedCommandMap(args).get(Constants.KEY_DAY_NUMBER));
-        Assert.assertEquals(Constants.FLAG_ECHO, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_FORMAT));
-        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getParsedCommandMap(args).get(Constants.KEY_FLAG_ORDER));
-        Assert.assertEquals(Constants.DEFAULT_SEED, parser.getParsedCommandMap(args).get(Constants.KEY_SEED));
+        CommandParser parser = new CommandParser(args);
+        Assert.assertEquals(Constants.REVEAL, parser.getActionFlag());
+        Assert.assertEquals(5, (long)parser.getDayNumber());
+        Assert.assertEquals(Constants.FLAG_ECHO, parser.getFormatFlag());
+        Assert.assertEquals(Constants.FLAG_RANDOM, parser.getOrderFlag());
+        Assert.assertEquals(Constants.DEFAULT_SEED, (long)parser.getSeedValue());
     }
 
     @Test
@@ -128,7 +139,7 @@ public class TestCommandParser {
         String[] args = {"--i-am-illegal"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -136,7 +147,7 @@ public class TestCommandParser {
         String[] args = {"--i-am-illegal", "20"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -144,7 +155,7 @@ public class TestCommandParser {
         String[] args = {"--i-am-illegal", "illegal", "cmd"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -152,7 +163,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER,"--i-am-illegal"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -160,7 +171,7 @@ public class TestCommandParser {
         String[] args = {Constants.REVEAL_IDENTIFIER, "20", "some", "other", "arguments", "passed", "to", "cmd"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.EXTRA_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -168,7 +179,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "20", "some", "other", "arguments", "passed", "to", "cmd"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.EXTRA_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -176,7 +187,7 @@ public class TestCommandParser {
         String[] args = {Constants.RECITE_IDENTIFIER, "20", "some", "other", "arguments", "passed", "to", "cmd"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.EXTRA_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -185,7 +196,7 @@ public class TestCommandParser {
                 "passed", "to", "cmd"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.EXTRA_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -193,7 +204,7 @@ public class TestCommandParser {
         String[] args = {Constants.REVEAL_IDENTIFIER, "abc", "some", "other", "arguments", "in", "cmd"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.EXTRA_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -201,7 +212,7 @@ public class TestCommandParser {
         String[] args = {};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.NO_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -209,7 +220,7 @@ public class TestCommandParser {
         String[] args = {"--not-echo"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -217,7 +228,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, "--illegal-format"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -225,7 +236,7 @@ public class TestCommandParser {
         String[] args = {Constants.REVEAL_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.INSUFFICIENT_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -233,7 +244,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.INSUFFICIENT_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -241,7 +252,7 @@ public class TestCommandParser {
         String[] args = {Constants.REVEAL_IDENTIFIER, "10", "--illegal-random"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -249,7 +260,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "10", "--illegal-random"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -257,7 +268,7 @@ public class TestCommandParser {
         String[] args = {Constants.RECITE_IDENTIFIER, "--illegal-random"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -265,7 +276,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER, "--illegal-random"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -274,7 +285,7 @@ public class TestCommandParser {
         "--illegal-seed"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -283,7 +294,7 @@ public class TestCommandParser {
                 "--illegal-seed"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -292,7 +303,7 @@ public class TestCommandParser {
                 "--illegal-seed"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -301,7 +312,7 @@ public class TestCommandParser {
                 "--illegal-seed"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -309,7 +320,7 @@ public class TestCommandParser {
         String[] args = {Constants.REVEAL_IDENTIFIER, "10", Constants.RANDOM_IDENTIFIER, Constants.SEED_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.INSUFFICIENT_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -318,7 +329,7 @@ public class TestCommandParser {
                 Constants.SEED_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.INSUFFICIENT_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -326,7 +337,7 @@ public class TestCommandParser {
         String[] args = {Constants.RECITE_IDENTIFIER, Constants.RANDOM_IDENTIFIER, Constants.SEED_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.INSUFFICIENT_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -335,7 +346,7 @@ public class TestCommandParser {
                 Constants.SEED_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.INSUFFICIENT_ARGS);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -343,7 +354,7 @@ public class TestCommandParser {
         String[] args = {"10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -351,7 +362,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER,"10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -359,7 +370,7 @@ public class TestCommandParser {
         String[] args = {Constants.RECITE_IDENTIFIER,"10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -367,7 +378,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -375,7 +386,7 @@ public class TestCommandParser {
         String[] args = {Constants.RANDOM_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -383,7 +394,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RANDOM_IDENTIFIER};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -391,7 +402,7 @@ public class TestCommandParser {
         String[] args = {Constants.SEED_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -399,7 +410,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.SEED_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -407,7 +418,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.RECITE_IDENTIFIER, Constants.SEED_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -415,7 +426,7 @@ public class TestCommandParser {
         String[] args = {Constants.RECITE_IDENTIFIER,Constants.SEED_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -423,7 +434,7 @@ public class TestCommandParser {
         String[] args = {Constants.ECHO_IDENTIFIER, Constants.REVEAL_IDENTIFIER, "10", Constants.SEED_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
     @Test
@@ -431,7 +442,7 @@ public class TestCommandParser {
         String[] args = {Constants.REVEAL_IDENTIFIER, "10", Constants.SEED_IDENTIFIER, "10"};
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(Constants.CMD_NOT_FOUND);
-        parser.getParsedCommandMap(args);
+        new CommandParser(args);
     }
 
 }
